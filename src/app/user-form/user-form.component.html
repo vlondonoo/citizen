@@ -1,0 +1,28 @@
+<form [formGroup]="profileForm">
+  <label for="id">id: </label>
+  <input id="id-value" type="text" formControlName="id" />
+
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name" />
+
+  <label for="address">address: </label>
+  <input id="address" type="text" formControlName="address" />
+
+  <label for="email">email: </label>
+  <input id="email" type="text" formControlName="email" />
+
+  <label for="operatorId">operatorId: </label>
+  <input id="operatorId" type="text" formControlName="operatorId" />
+
+  <label for="operatorName">operatorName: </label>
+  <input id="operatorName" type="text" formControlName="operatorName" />
+
+  <button type="submit" (click)="submit()" [disabled]="!profileForm.valid">
+    Submit
+  </button>
+</form>
+<p>Complete the form to enable button.</p>
+<!-- <div>
+  <button type="button" (click)="updateProfile()">Update Profile</button>
+</div> -->
+<p>Form Status: {{ profileForm.status }}</p>
