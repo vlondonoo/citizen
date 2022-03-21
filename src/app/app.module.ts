@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ValidateUserComponent } from './validate-user/validate-user.component';
 import { AuthenticateDocumentComponent } from './authenticate-document/authenticate-document.component';
 import { HomeComponent } from './home/home.component';
+import { CookieService } from 'ngx-cookie-service';
+import jwtDecode from 'jwt-decode';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
