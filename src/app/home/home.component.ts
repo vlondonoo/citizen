@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,13 @@ import { UserService } from '../user.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private router: Router,) { }
 
   ngOnInit(): void {
   }
   login(){
-    console.log('+++++++')
-    this.userService.login().subscribe((response: any) => {console.log('response',response)})
+    this.userService.login().subscribe((response: any) => {console.log('response',response)
+    this.router.navigate(["/"]).then(result=>{window.location.href = response.url})
+  })
   }
 }
