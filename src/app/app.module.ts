@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserFormComponent } from './user-form/user-form.component';
 import { ValidateUserComponent } from './validate-user/validate-user.component';
 import { AuthenticateDocumentComponent } from './authenticate-document/authenticate-document.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent,
     ValidateUserComponent,
     AuthenticateDocumentComponent
   ],

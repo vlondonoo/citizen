@@ -16,15 +16,8 @@ export class UserService {
   validateCitizen(id:any):Observable<object> {
     console.log('--*-*-**-**-')
     return this.http.get(`${this.url}/${id}`,this.httpOptions).pipe(
-      tap(_ => console.log('reponse')),
-      )
-    
-  }
-
-  createCitizen(newCitizenInfo:any){
-    return this.http.post(`${this.url}/registerCitizen`,newCitizenInfo,this.httpOptions).pipe(
-      tap(_ => console.log('reponse')),
-      )
+      tap(_ => console.log('response')),
+      )  
   }
 
   authenticateDocument(AuthDocumentInfo:any){
