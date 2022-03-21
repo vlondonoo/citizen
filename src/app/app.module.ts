@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValidateUserComponent } from './validate-user/validate-user.component';
 import { AuthenticateDocumentComponent } from './authenticate-document/authenticate-document.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ValidateUserComponent,
-    AuthenticateDocumentComponent
+    AuthenticateDocumentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -25,4 +25,10 @@ export class UserService {
       tap(_ => console.log('reponse')),
       )
   }
+
+  login(){
+    return this.http.get(`http://localhost:4000/auth/google/url`,this.httpOptions).pipe(
+      tap(_ => console.log('reponse')),
+      )
+  }
 }
