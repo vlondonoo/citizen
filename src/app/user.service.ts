@@ -14,7 +14,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   validateCitizen(id:any):Observable<object> {
-    console.log('--*-*-**-**-')
     return this.http.get(`${this.url}/${id}`,this.httpOptions).pipe(
       tap(_ => console.log('response')),
       )  

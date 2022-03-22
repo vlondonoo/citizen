@@ -1,1 +1,6 @@
-<button (click)="login()">login</button>
+<button *ngIf="allowLogin" (click)="login()">login</button>
+<div *ngIf="!allowLogin">
+  <p>Selecciona una opcion</p>
+  <button (click)="validateUser()">validate User</button>
+  <button (click)="authDocument()">Authenticate Document</button>
+</div>

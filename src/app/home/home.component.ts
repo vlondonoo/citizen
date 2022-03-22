@@ -9,27 +9,40 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  allowLogin:boolean= true;
 
   private infoUser: any;
   private decoded:any;
   constructor(private userService: UserService, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
-    this.datalogin();
+    this.allowLogin = true;
+    if(this.cookieService.get('auth_token')){ 
+      this.allowLogin= false;
+      this.datalogin();
+    }  
   }
 
-  datalogin() {
-    debugger
+  datalogin() {   
     this.infoUser = this.cookieService.get('auth_token');
-    console.log(this.infoUser);
     this.decoded = jwt_decode(this.infoUser);
     console.log(this.decoded);
+    
   }
 
   login() {
     this.userService.login().subscribe((response: any) => {
       console.log('response', response)
-      this.router.navigate(["/"]).then(result => { window.location.href = response.url })
+      this.router.navigate(["/"]).then(result => { window.location.href = response.url }).then(res=>{console.log('*****')
+        })
     })
   }
+  validateUser(){
+    this.router.navigate(['/validate-user'])
+  }
+
+  authDocument(){
+    this.router.navigate(['/auth-document'])
+  }
+
 }
