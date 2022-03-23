@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./validate-user.component.css']
 })
 export class ValidateUserComponent implements OnInit, OnDestroy {
-  valores: Subscription = new Subscription();
+  validate: Subscription = new Subscription();
   profileForm = this.fb.group({
     id: ['', Validators.required],
   });
@@ -22,14 +22,14 @@ export class ValidateUserComponent implements OnInit, OnDestroy {
   }
   submit(){
     let response = this.profileForm.value
-    this.valores = this.userService.validateCitizen(response.id).subscribe((response: any) => {console.log('response',response)}) 
+    this.validate = this.userService.validateCitizen(response.id).subscribe((response: any) => {console.log('response',response)}) 
   } 
 
   home(){
     this.router.navigate(['/'])
   }
   ngOnDestroy(){
-    this.valores.unsubscribe()
+    this.validate.unsubscribe()
   }
 
 }

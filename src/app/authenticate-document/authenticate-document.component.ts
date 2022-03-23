@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./authenticate-document.component.css']
 })
 export class AuthenticateDocumentComponent implements OnInit, OnDestroy  {
-  valores: Subscription = new Subscription();
+  validate: Subscription = new Subscription();
   profileForm = this.fb.group({
     id: ['', Validators.required],
     urlDocument: ['', Validators.required],
@@ -32,6 +32,6 @@ export class AuthenticateDocumentComponent implements OnInit, OnDestroy  {
   }
 
   ngOnDestroy(){
-    this.valores.unsubscribe()
+    this.validate.unsubscribe()
   }
 }
