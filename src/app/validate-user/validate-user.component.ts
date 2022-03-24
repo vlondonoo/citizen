@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ValidateUserComponent implements OnInit, OnDestroy {
   validate: Subscription = new Subscription();
+  response:string | undefined;
   profileForm = this.fb.group({
     id: ['', Validators.required],
   });
@@ -21,8 +22,9 @@ export class ValidateUserComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
   submit(){
-    let response = this.profileForm.value
-    this.validate = this.userService.validateCitizen(response.id).subscribe((response: any) => {console.log('response',response)}) 
+    let formValue = this.profileForm.value
+    this.validate = this.userService.validateCitizen(formValue.id).subscribe((res: any) => {console.log('response',res)
+    this.response = res.data}) 
   } 
 
   home(){

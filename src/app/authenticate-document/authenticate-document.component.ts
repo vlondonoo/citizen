@@ -12,6 +12,7 @@ import { UserService } from '../user.service';
 })
 export class AuthenticateDocumentComponent implements OnInit, OnDestroy  {
   validate: Subscription = new Subscription();
+  response:string | undefined;
   profileForm = this.fb.group({
     id: ['', Validators.required],
     urlDocument: ['', Validators.required],
@@ -24,8 +25,9 @@ export class AuthenticateDocumentComponent implements OnInit, OnDestroy  {
   }
 
   submit(){
-     let response = this.profileForm.value
-     this.userService.authenticateDocument(response).subscribe((response: any) => {console.log('response',response)})   
+     let formValue = this.profileForm.value
+     this.userService.authenticateDocument(formValue).subscribe((res: any) => {console.log('response',res)
+     this.response = res.data})   
   } 
   home(){
     this.router.navigate(['/'])
